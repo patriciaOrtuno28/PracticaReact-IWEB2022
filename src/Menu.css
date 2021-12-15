@@ -14,11 +14,15 @@
 }
 
 .nav-tabs a:hover:not(.active) {
-    background-color: #985E6D;
+    background-color: #192231;
 }
 
 .nav-tabs a {
     display: inline-block;
     padding: 20px 20px;
     color: white;
+}
+
+.nav-tabs .active {
+    background-color: #494E6B;
 }

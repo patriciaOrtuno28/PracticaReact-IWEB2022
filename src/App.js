@@ -9,7 +9,7 @@ function App() {
   return (
     <Router>
       <Menu />
-      <div className="container mt-2" style={{ marginTop: 40 }}>
+      <div className="container mt-2" style={{ marginTop: 20 }}>
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/tictactoe" element={<TicTacToe/>}/>
