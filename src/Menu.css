@@ -1,0 +1,24 @@
+.nav-tabs {
+    background-color: #98878F;
+    display: block;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-size: large;
+    text-decoration: none;
+}
+
+.nav-tabs a:link, a:visited, a:active {
+    text-decoration:none;
+}
+
+.nav-tabs a:hover:not(.active) {
+    background-color: #985E6D;
+}
+
+.nav-tabs a {
+    display: inline-block;
+    padding: 20px 20px;
+    color: white;
+}
