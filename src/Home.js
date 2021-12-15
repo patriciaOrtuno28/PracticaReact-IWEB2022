@@ -1,14 +1,23 @@
 import React from "react";
+import "./Home.css";
 
 const Home = () => (
-  <div>
-    <h1 className="title is-1">This is the Home Page</h1>
+  <div class="container">
+    <h1>¡Bienvenido!</h1>
+    <h2>Página principal de minijuegos en React</h2>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras gravida,
-      risus at dapibus aliquet, elit quam scelerisque tortor, nec accumsan eros
-      nulla interdum justo. Pellentesque dignissim, sapien et congue rutrum,
-      lorem tortor dapibus turpis, sit amet vestibulum eros mi et odio.
+      En esta página podrás jugar a diferentes juegos. <br/>
+      Haz click en la pestaña del juego al que quieras jugar.
     </p>
+    <div class="footer">
+      <div class="footer_contents">
+        <b>IWEB 2021</b>
+        &emsp;
+        Daniel Sanz Sobrino
+        &emsp;
+        Patricia Ortuño Otero
+      </div>
+    </div>
   </div>
 );
 
