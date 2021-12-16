@@ -4,7 +4,6 @@ import Game from "./Game";
 import  {useState} from 'react';
 
 export default function Quiz(props) {
-  // a
   // Inicialización de parámetros como Hooks
   const [score, setScore] = useState(0);
   const [finished, setFinished] = useState(false);
