@@ -8,11 +8,7 @@ export default function Quiz(props) {
   const [score, setScore] = useState(0);
   const [finished, setFinished] = useState(false);
   const [currentQuiz, setCurrentQuiz] = useState(0);
-  const [quizzes, setQuizzes] = useState([]);
-
-  const parse = JSON.parse(quizzes);
-  setQuizzes([...parse]);
-
+  const [quizzes, setQuizzes] = useState([...quizzes]);
 
 
   // Visualización
