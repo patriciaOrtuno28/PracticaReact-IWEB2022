@@ -1,10 +1,10 @@
-.container {
+#container_home {
     padding: 10px;
     text-align: center;
     align-self: center;
 }
 
-.container h1 {
+#h1_home {
     font-size: 4em;
     text-transform: uppercase;
     text-shadow: 
@@ -17,11 +17,7 @@
     1px 15px 8px rgba(16,16,16,0.4);
 }
 
-.container h1:hover {
-    background-position: -100%;
-}
-
-.container h2 {
+#h2_home {
     text-shadow: 1px 4px 4px rgba(16,16,16,0.4);
 }
 

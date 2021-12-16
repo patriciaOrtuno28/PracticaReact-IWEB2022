@@ -1,0 +1,170 @@
+#container_tictactoe {
+    padding: 10px;
+    text-align: center;
+    align-self: center;
+}
+
+#container_header, #h2_tictactoe {
+    display: inline-block;
+    margin: 10px;
+    position: relative;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    overflow: hidden;
+}
+
+#container_header::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    background-color: #494E6B;
+    background-attachment: fixed;
+    filter: blur(2px);
+}
+
+#h2_header, #h2_tictactoe {
+    position: relative;
+    z-index: 2;
+    font-size: 1em;
+}
+
+#btn_reset {
+    margin: 0 auto;
+    display: block;
+    position: relative;
+    background: none;
+    border: 2px solid #192231;
+    color: white;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    min-width: 200px;
+    cursor: pointer;
+    transition: color 0.4s linear;
+}
+
+#btn_reset::before {
+    content:'';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #192231;
+    z-index: -1;
+    transition: transform 0.5s;
+    transform-origin: 0 0;
+    transition-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+    transform: scaleX(0);
+}
+
+#btn_reset:hover::before {
+    transform: scaleX(1);
+}
+
+#btn_square {
+    background: inherit;
+    margin: 2px;
+    background-color: #192231;
+    color: white;
+    font-size: 2em;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.336);
+    border-radius: 0.3em;
+    display: inline-block;
+    border: 0.01em solid white;
+}
+
+#btn_square:hover {
+    cursor: pointer;
+}
+
+#span_header {
+    position: relative;
+    height: 56px;
+}
+
+#span_header input {
+    position: relative;
+    width: 200px;
+    height: 50px;
+    border-radius: 25px;
+    outline: none;
+    cursor: none;
+    appearance: none;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    box-shadow: 1px 6px 11px #000000;
+    transition: 0.2s -0.1s;
+}
+
+#span_header input:checked {
+    background: #fff;
+}
+
+#span_header input:checked:before {
+    color: #111;
+    transition: color 0.5s 0.2s;
+}
+
+#span_header input:checked:after {
+    color: #111;
+    transition: color 0.5s;
+}
+
+#span_header input:checked + label {
+    left: 10px;
+    right: 100px;
+    background: #2dab21;
+    transition: left 0.5s, right 0.4s 0.2s;
+}
+
+#span_header input:not(:checked) {
+    background: #2dab21;
+    transition: background 0.5s -0.1s;
+}
+
+#span_header input:not(:checked):before {
+    color: #111;
+    transition: color 0.5s;
+}
+
+#span_header input:not(:checked):after {
+    color: #1e1e1e;
+    transition: color 0.5s 0.2s;
+}
+
+#span_header input:not(:checked) + label {
+    left: 100px;
+    right: 10px;
+    background: #fff;
+    transition: left 0.4s 0.2s, right 0.5s, background 0.35s;
+}
+
+#span_header input:before,
+#span header input:after {
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #111;
+}
+
+#span_header input:before {
+    content: 'PLAYER X';
+    left: 40px;
+}
+
+#span_header input:after {
+    content: 'PLAYER 0';
+    right: 40px;
+}
+
+#span_header label {
+    z-index: 1;
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    border-radius: 20px;
+}
