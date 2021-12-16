@@ -1,15 +1,25 @@
 import React from "react";
+import { quizzes } from "./assets/mock-data";
+import Game from "./Game";
+import  {useState} from 'react';
 
-const Quiz = () => (
-  <div>
-    <h1 className="title is-1">This is the Quiz Page</h1>
-    <p>
-      Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
-      inceptos himenaeos. Vestibulum ante ipsum primis in faucibus orci luctus
-      et ultrices posuere cubilia curae; Duis consequat nulla ac ex consequat,
-      in efficitur arcu congue. Nam fermentum commodo egestas.
-    </p>
-  </div>
-);
+export default function Quiz(props) {
+  // a
+  // Inicialización de parámetros como Hooks
+  const [score, setScore] = useState(0);
+  const [finished, setFinished] = useState(false);
+  const [currentQuiz, setCurrentQuiz] = useState(0);
+  const [quizzes, setQuizzes] = useState([]);
 
-export default Quiz;
+  const parse = JSON.parse(quizzes);
+  setQuizzes([...parse]);
+
+
+
+  // Visualización
+  return(
+    <div id="container_quiz">
+      <Game quiz={quizzes[currentQuiz]}/>
+    </div>
+  );
+}
