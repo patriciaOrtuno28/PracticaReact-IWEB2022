@@ -3,15 +3,21 @@ import {Button} from 'react-bootstrap';
 import  {useState} from 'react';
 
 export default function Game (props) {
-    let nullArray = new Array(props.nQuizzes);
+    //a
+    let nullArray = new Array(props.nQuizzes).fill(false);
     const [answers, setAnswers] = useState(nullArray);
-    const [officialAnswers, setOfficialAnswers] = useState(nullArray);
+    var localScore = 0;
 
     const before = () => {
         let inputValue = document.getElementById("quiz_answer").value;
-        if (inputValue!="" || inputValue!=null){
-            answers[props.currentQuiz] = inputValue;
-            setAnswers(answers);
+        if (inputValue.length>0){
+            if (inputValue.toLowerCase() === props.quiz.answer.toLowerCase()){
+                answers[props.currentQuiz] = true;
+                setAnswers(answers);
+            } else {
+                answers[props.currentQuiz] = false;
+                setAnswers(answers);
+            }
         }
         document.getElementById("quiz_answer").value = "";
         props.setCurrentQuiz(props.currentQuiz  - 1);
@@ -19,36 +25,36 @@ export default function Game (props) {
 
     const next = () => {
         let inputValue = document.getElementById("quiz_answer").value;
-        if (inputValue!="" || inputValue!=null){
-            answers[props.currentQuiz] = inputValue;
-            setAnswers(answers);
+        if (inputValue.length>0){
+            if (inputValue.toLowerCase() === props.quiz.answer.toLowerCase()){
+                answers[props.currentQuiz] = true;
+                setAnswers(answers);
+            } else {
+                answers[props.currentQuiz] = false;
+                setAnswers(answers);
+            }
         }
         document.getElementById("quiz_answer").value = "";
-        officialAnswers[props.currentQuiz] = props.quiz.answer;
-        setOfficialAnswers(officialAnswers);
         props.setCurrentQuiz(props.currentQuiz  + 1);
     }
 
     const submit = () => {
         let inputValue = document.getElementById("quiz_answer").value;
-        if (inputValue!="" || inputValue!=null){
-            answers[props.currentQuiz] = inputValue;
-            setAnswers(answers);
-        }
-        officialAnswers[props.currentQuiz] = props.quiz.answer;
-        setOfficialAnswers(officialAnswers);
-        for (var i=0; i<answers.length; i++) {
-            if (answers[i] && officialAnswers[i]){
-                console.log(answers[i]);
-                console.log("---------");
-                console.log(officialAnswers[i]);
-                console.log("FIN");
-                if (answers[i].toLowerCase() === officialAnswers[i].toLowerCase()){
-                    console.log(props.score);
-                    props.setScore(props.score + 1);
-                }
+        if (inputValue.length>0){
+            if (inputValue.toLowerCase() === props.quiz.answer.toLowerCase()){
+                answers[props.currentQuiz] = true;
+                setAnswers(answers);
+            } else {
+                answers[props.currentQuiz] = false;
+                setAnswers(answers);
             }
         }
+        answers.forEach(function(element) {
+            if (element) {
+                localScore += 1;
+            }
+        });
+        props.setScore(localScore);
         props.setFinished(true);
     }
 
