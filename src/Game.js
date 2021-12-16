@@ -5,6 +5,7 @@ import  {useState} from 'react';
 export default function Game (props) {
     let nullArray = new Array(props.nQuizzes);
     const [answers, setAnswers] = useState(nullArray);
+    const [officialAnswers, setOfficialAnswers] = useState(nullArray);
 
     const before = () => {
         let inputValue = document.getElementById("quiz_answer").value;
@@ -15,6 +16,7 @@ export default function Game (props) {
         document.getElementById("quiz_answer").value = "";
         props.setCurrentQuiz(props.currentQuiz  - 1);
     }
+
     const next = () => {
         let inputValue = document.getElementById("quiz_answer").value;
         if (inputValue!="" || inputValue!=null){
@@ -22,21 +24,31 @@ export default function Game (props) {
             setAnswers(answers);
         }
         document.getElementById("quiz_answer").value = "";
+        officialAnswers[props.currentQuiz] = props.quiz.answer;
+        setOfficialAnswers(officialAnswers);
         props.setCurrentQuiz(props.currentQuiz  + 1);
     }
+
     const submit = () => {
         let inputValue = document.getElementById("quiz_answer").value;
         if (inputValue!="" || inputValue!=null){
             answers[props.currentQuiz] = inputValue;
             setAnswers(answers);
         }
-        answers.forEach(function(element){
-            console.log(element.toLowerCase());
-            console.log(props.quiz.answer.toLowerCase());
-            if (element.toLowerCase() === props.quiz.answer.toLowerCase()) {
-                props.setScore(props.score + 1);
+        officialAnswers[props.currentQuiz] = props.quiz.answer;
+        setOfficialAnswers(officialAnswers);
+        for (var i=0; i<answers.length; i++) {
+            if (answers[i] && officialAnswers[i]){
+                console.log(answers[i]);
+                console.log("---------");
+                console.log(officialAnswers[i]);
+                console.log("FIN");
+                if (answers[i].toLowerCase() === officialAnswers[i].toLowerCase()){
+                    console.log(props.score);
+                    props.setScore(props.score + 1);
+                }
             }
-        });
+        }
         props.setFinished(true);
     }
 
@@ -44,6 +56,7 @@ export default function Game (props) {
         props.setFinished(false);
         props.setScore(0);
         setAnswers(nullArray);
+        props.setCurrentQuiz(0);
     }
 
     if (!props.finished) {
