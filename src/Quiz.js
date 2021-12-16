@@ -2,6 +2,8 @@ import React from "react";
 import { quizzes } from "./assets/mock-data";
 import Game from "./Game";
 import  {useState} from 'react';
+import Shortcuts from './Shortcuts';
+import "./Quiz.css";
 
 
 export default function Quiz() {
@@ -11,12 +13,15 @@ export default function Quiz() {
   const [currentQuiz, setCurrentQuiz] = useState(0);
   const [quizzesArray, setQuizzes] = useState([...quizzes]);
 
-
-
   // Visualización
   return(
     <div id="container_quiz">
-      <Game quiz={quizzesArray[currentQuiz]}/>
+      <div id="box1">
+        <Shortcuts />
+      </div>
+      <div id="box2">
+        <Game quiz={quizzesArray[currentQuiz]}/>
+      </div>
     </div>
   );
 }
