@@ -1,15 +1,50 @@
 import React from "react";
+import "./TicTacToe.css";
+import  {useState} from 'react';
+import Header from './Header';
+import Board from './Board';
+import {Button} from 'react-bootstrap';
 
-const TicTacToe = () => (
-  <div>
-    <h1 className="title is-1">This is the TicTacToe Page</h1>
-    <p>
-      Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
-      inceptos himenaeos. Vestibulum ante ipsum primis in faucibus orci luctus
-      et ultrices posuere cubilia curae; Duis consequat nulla ac ex consequat,
-      in efficitur arcu congue. Nam fermentum commodo egestas.
-    </p>
+const PLAYERX = "Player 1 - Xs";
+const PLAYER0 = "Player 2 - 0s";
+
+export default function TicTacToe(props) {
+  const [turno, setTurno] = useState(PLAYERX);
+  const [values, setValues] = useState([
+    ['-', '-', '-'],
+    ['-', '-', '-'],
+    ['-', '-', '-']
+  ])
+
+  const [moves, setMoves] = useState(0);
+
+  const appClick = (i, j) => {
+    console.log(`Click en ${i}, ${j}`);
+    let newValues = JSON.parse(JSON.stringify(values));
+    newValues[i][j] = turno === PLAYERX ? 'X' : '0';
+    setValues(newValues);
+    setTurno(turno === PLAYERX ? PLAYER0 : PLAYERX);
+    let newMoves = moves+1;
+    setMoves(newMoves);
+  }
+
+  const reset = () => {
+    setValues([
+      ['-', '-', '-'],
+      ['-', '-', '-'],
+      ['-', '-', '-']
+    ]);
+    setMoves(0);
+    setTurno(PLAYER0);
+  }
+
+return(
+  <div id="container_tictactoe">
+    <Header turno={turno}/>
+    <Board turno={turno} values={values} appClick={appClick}/>
+    <h2 id="h2_tictactoe">Number of moves: {moves}</h2>
+    <Button onClick={reset} variant="success" id="btn_reset">Reset</Button>
   </div>
-);
+)
 
-export default TicTacToe;
+}
