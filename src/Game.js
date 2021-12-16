@@ -82,15 +82,15 @@ export default function Game (props) {
                 </div>
             </div>
             <div id="container_btns">
-                <Button onClick={before} disabled={props.currentQuiz==0}>Anterior</Button>
-                <Button onClick={next} disabled={props.currentQuiz==props.nQuizzes-1}>Siguiente</Button>
-                <Button onClick={submit}>Submit</Button>
+                <Button id="btn_quiz" onClick={before} disabled={props.currentQuiz==0}>Anterior</Button>
+                <Button id="btn_quiz" onClick={next} disabled={props.currentQuiz==props.nQuizzes-1}>Siguiente</Button>
+                <Button id="btn_quiz" onClick={submit}>Submit</Button>
             </div>
         </div>
     } else {
-        return <div id="container_gameGlobal">
+        return <div id="container_playAgain">
             <h2>Score: {props.score}</h2>
-            <Button onClick={playAgain}>Volver a jugar</Button>
+            <Button id="btn_quiz" onClick={playAgain}>Volver a jugar</Button>
         </div>
     }
 }
