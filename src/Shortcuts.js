@@ -1,15 +1,10 @@
 import {Button} from 'react-bootstrap';
+import "./Quiz.css";
 
 export default function Shortcuts (props) {
-    let shortcuts = () => {
-        for (var i=1; i<props.nQuizzes; i++){
-            let mybtn = () => {<Button>i</Button>} 
-            return <div>{mybtn}</div>
-        }
-    }
-
-    return <div id="container_shortcuts">
-        <h2>Hola Sobri</h2>
-        {shortcuts}
-        </div>
+    let shortcuts = props.quizzes.map((q, i) => {
+        console.log(q);
+        return <Button id="btn_shortcut" onClick={() => {props.setCurrentQuiz(i)}}>{i+1}</Button>
+    });
+    return <div id="container_shortcuts">{shortcuts}</div>
 }

@@ -68,7 +68,10 @@ export default function Game (props) {
         return <div id="container_gameGlobal">
             <div id="container_game">
                 <div id="container_img">
-                    <img src={props.quiz.attachment.url} id="img_quiz"/>
+                    <img src={props.quiz.attachment.url} id="img_quiz" onError={event => {
+                        event.target.src = 'https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg'
+                        event.onerror = null
+                    }}/>
                     <div id="container_img_text">
                         <img src={props.quiz.author.photo.url} id="img_author"/>
                         <p id="text_author">{props.quiz.author.username}</p>
@@ -82,15 +85,16 @@ export default function Game (props) {
                 </div>
             </div>
             <div id="container_btns">
-                <Button onClick={before} disabled={props.currentQuiz==0}>Anterior</Button>
-                <Button onClick={next} disabled={props.currentQuiz==props.nQuizzes-1}>Siguiente</Button>
-                <Button onClick={submit}>Submit</Button>
+                <Button id="btn_quiz" onClick={before} disabled={props.currentQuiz==0}>Anterior</Button>
+                <Button id="btn_quiz" onClick={next} disabled={props.currentQuiz==props.nQuizzes-1}>Siguiente</Button>
+                <Button id="btn_quiz" onClick={submit}>Submit</Button>
             </div>
         </div>
     } else {
-        return <div id="container_gameGlobal">
-            <h2>Score: {props.score}</h2>
-            <Button onClick={playAgain}>Volver a jugar</Button>
+        return <div id="container_playAgain">
+            <h2>Puntuación: {props.score}</h2>
+            <h3>{(parseInt(props.score)/parseInt(props.nQuizzes))*100}% acertadas</h3>
+            <Button id="btn_quiz" onClick={playAgain}>Volver a jugar</Button>
         </div>
     }
 }
