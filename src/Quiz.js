@@ -17,7 +17,7 @@ export default function Quiz() {
   return(
     <div id="container_quiz">
       <div id="box1">
-        <Shortcuts />
+        <Shortcuts nQuizzes={quizzesArray.length}/>
       </div>
       <div id="box2">
         <Game quiz={quizzesArray[currentQuiz]}/>

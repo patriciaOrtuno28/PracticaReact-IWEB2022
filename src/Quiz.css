@@ -6,8 +6,19 @@
 
 #box1 {
     align-self: flex-start;
+    padding: 20px;
 }
 
 #box2 {
     align-self: stretch;
+    padding: 20px;
+}
+
+#container_game {
+    display: flex;
+    align-items: flex-end;
+}
+
+#container_img {
+    align-self: flex-start;
 }
