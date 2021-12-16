@@ -3,7 +3,6 @@ import {Button} from 'react-bootstrap';
 import  {useState} from 'react';
 
 export default function Game (props) {
-    //a
     let nullArray = new Array(props.nQuizzes).fill(false);
     const [answers, setAnswers] = useState(nullArray);
     var localScore = 0;
