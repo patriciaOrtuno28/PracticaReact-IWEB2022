@@ -20,7 +20,7 @@ export default function Quiz() {
         <Shortcuts nQuizzes={quizzesArray.length}/>
       </div>
       <div id="box2">
-        <Game quiz={quizzesArray[currentQuiz]}/>
+        <Game quiz={quizzesArray[currentQuiz]} currentQuiz={currentQuiz} setCurrentQuiz={setCurrentQuiz} nQuizzes={quizzesArray.length} setScore={setScore} score={score} setFinished={setFinished} finished={finished}/>
       </div>
     </div>
   );
