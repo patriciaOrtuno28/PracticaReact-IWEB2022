@@ -89,7 +89,8 @@ export default function Game (props) {
         </div>
     } else {
         return <div id="container_playAgain">
-            <h2>Score: {props.score}</h2>
+            <h2>Puntuación: {props.score}</h2>
+            <h3>{(parseInt(props.score)/parseInt(props.nQuizzes))*100}% acertadas</h3>
             <Button id="btn_quiz" onClick={playAgain}>Volver a jugar</Button>
         </div>
     }
