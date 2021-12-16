@@ -3,23 +3,22 @@ import { quizzes } from "./assets/mock-data";
 import Game from "./Game";
 import  {useState} from 'react';
 
-export default function Quiz(props) {
+export default function Quiz() {
   // a
   // Inicialización de parámetros como Hooks
   const [score, setScore] = useState(0);
   const [finished, setFinished] = useState(false);
   const [currentQuiz, setCurrentQuiz] = useState(0);
-  const [quizzes, setQuizzes] = useState([]);
+  const [quizzesArray, setQuizzes] = useState([...quizzes]);
 
-  const parse = JSON.parse(quizzes);
-  setQuizzes([...parse]);
+
 
 
 
   // Visualización
   return(
     <div id="container_quiz">
-      <Game quiz={quizzes[currentQuiz]}/>
+      <Game quiz={quizzesArray[currentQuiz]}/>
     </div>
   );
 }
