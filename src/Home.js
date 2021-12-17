@@ -9,12 +9,9 @@ class Home extends Component {
       <LangContext.Consumer>
         {lang =>
           <div id="container_home">
-            <h1 id="h1_home">{lang.welcome}</h1>
-            <h2 id="h2_home">Página principal de minijuegos en React</h2>
-            <p>
-              En esta página podrás jugar a diferentes juegos. <br/>
-              Haz click en la pestaña del juego al que quieras jugar.
-            </p>
+            <h1 id="h1_home">{lang.home_welcome}</h1>
+            <h2 id="h2_home">{lang.home_subtitle}</h2>
+            <p>{lang.home_text}</p>
             <div class="footer">
               <div class="footer_contents">
                 <b>IWEB 2021</b>
