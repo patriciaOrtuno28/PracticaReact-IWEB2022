@@ -4,6 +4,8 @@ import  {useState} from 'react';
 import  {useEffect} from 'react';
 import Shortcuts from './Shortcuts';
 import "./Quiz.css";
+import axios from "axios";
+import {quizzes} from './assets/mock-data'
 
 
 
@@ -12,22 +14,23 @@ export default function Quiz() {
   
     const [articulos, setArticulos] = useState([])
     useEffect(() => {
-      fetch("https://core.dit.upm.es/api/quizzes/random10wa?token=0a72635966eb3864d6fe")
+      axios.get('https://core.dit.upm.es/api/quizzes/random10wa?token=0a72635966eb3864d6fe')
         .then((response) => {
-          console.log("a")
-          return response.json()
+          console.log(response.data);
+          return response.data
         })
         .then((articulos) => {
-          setArticulos(articulos)
+          setArticulos(articulos);
+          console.log(articulos);
         })
-    }, [])
- console.log(articulos)
+    });
+ 
   
   // Inicialización de parámetros como Hooks
   const [score, setScore] = useState(0);
   const [finished, setFinished] = useState(false);
   const [currentQuiz, setCurrentQuiz] = useState(0);
-  const [quizzesArray, setQuizzes] = useState([...articulos]);
+  const [quizzesArray, setQuizzes] = useState(quizzes);
 
   // Visualización
   return(
