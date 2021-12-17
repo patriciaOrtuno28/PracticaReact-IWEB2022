@@ -12,18 +12,23 @@ import {quizzes} from './assets/mock-data'
 
 export default function Quiz() {
   
-    const [articulos, setArticulos] = useState([])
-    useEffect(() => {
-      axios.get('https://core.dit.upm.es/api/quizzes/random10wa?token=0a72635966eb3864d6fe')
-        .then((response) => {
-          console.log(response.data);
-          return response.data
-        })
-        .then((articulos) => {
-          setArticulos(articulos);
-          console.log(articulos);
-        })
-    });
+  const [articulos, setArticulos] = useState([]);
+  const temp = [];
+  useEffect(() => {
+    axios.get('https://core.dit.upm.es/api/quizzes/random10wa?token=0a72635966eb3864d6fe')
+      .then((response) => {
+        return response.data
+      })
+      .then((response) => response.json())
+      .then((articulos) => {
+        articulos.forEach(function(element){
+          temp.append(element);
+        });
+      })
+  });
+
+  setArticulos(temp);
+  console.log(articulos);
  
   
   // Inicialización de parámetros como Hooks
