@@ -1,4 +1,4 @@
 import React from "react";
-import es from "./lang/es.json";
+import esp from "./esp.json";
 
-export const LangContext = React.createContext ({userLang: 'es', dictionary: 'es'});
+export const LangContext = React.createContext ({userLang: 'esp', dictionary: esp});

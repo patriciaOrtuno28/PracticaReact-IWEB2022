@@ -4,6 +4,7 @@ import TicTacToe from './TicTacToe';
 import Home from './Home';
 import Quiz from './Quiz';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Context from './Context';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/" element={<Home/>}/>
           <Route path="/tictactoe" element={<TicTacToe/>}/>
           <Route path="/quiz" element={<Quiz/>}/>
+          <Route path="/context" element={Context} />
         </Routes>
       </div>
     </Router>
