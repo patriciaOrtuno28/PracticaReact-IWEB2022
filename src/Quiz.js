@@ -1,15 +1,41 @@
 import React from "react";
+import Game from "./Game";
+import  {useState} from 'react';
+import  {useEffect} from 'react';
+import "./Quiz.css";
+import axios from "axios";
+import { LangContext } from './LangContext';
 
-const Quiz = () => (
-  <div>
-    <h1 className="title is-1">This is the Quiz Page</h1>
-    <p>
-      Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
-      inceptos himenaeos. Vestibulum ante ipsum primis in faucibus orci luctus
-      et ultrices posuere cubilia curae; Duis consequat nulla ac ex consequat,
-      in efficitur arcu congue. Nam fermentum commodo egestas.
-    </p>
-  </div>
-);
+export default function Quiz() {  
+  // Inicialización de parámetros como Hooks
+  const [score, setScore] = useState(0);
+  const [finished, setFinished] = useState(false);
+  const [currentQuiz, setCurrentQuiz] = useState(0);
+  const [quizzesArray, setQuizzes] = useState([]);
 
-export default Quiz;
+  // Usamos axios por su bajo peso, rapidez en las peticiones y soporte de plataformas  
+  useEffect(() => {
+    const consultaAPI = async () => {
+      await axios({
+        method: 'GET',
+        url: 'https://core.dit.upm.es/api/quizzes/random10wa?token=0a72635966eb3864d6fe'
+      }).then(res => {    // Es una promesa -> .then
+        setQuizzes(res.data);
+      }).catch(err => console.log(err))
+    }
+    consultaAPI();
+  }, []);
+
+  // Visualización
+  return(
+    <LangContext.Consumer>
+        {lang =>
+            <div id="container_quiz">
+            {
+              quizzesArray.length >= 1 ? <Game quizzes={quizzesArray} quiz={quizzesArray[currentQuiz]} currentQuiz={currentQuiz} setCurrentQuiz={setCurrentQuiz} nQuizzes={quizzesArray.length} setScore={setScore} score={score} setFinished={setFinished} finished={finished}/> : <h2>No hay quizzes disponibles.</h2>
+            }
+          </div>
+        }
+    </LangContext.Consumer>
+  );
+}

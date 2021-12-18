@@ -4,5 +4,14 @@
     "home_text": "In this webpage you will be able to play different games. Click on the tab of the game you want to play.",
     "ttt_nMoves": "Number of moves: ",
     "ttt_reset": "Reset",
-    "header_turn": "Turn of "
+    "header_turn": "Turn of ",
+    "quiz_no": "No quizzes available.",
+    "game_score": "Score: ",
+    "game_correct": "correct",
+    "game_playAgain": "Play again",
+    "game_question": "Question ",
+    "game_insertAnswer": "Insert answer: ",
+    "btn_next": "Next",
+    "btn_prev": "Previous",
+    "btn_submit": "Submit"
 }
