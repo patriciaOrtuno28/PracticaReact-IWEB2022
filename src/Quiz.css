@@ -1,25 +1,25 @@
 #container_quiz {
-    display: flex;
-    align-items: flex-end;
     min-height: 200px;
 }
 
 #box1 {
     align-self: flex-start;
-    padding: 20px;
-}
-
-#box2 {
-    align-self: stretch;
-    padding: 20px;
 }
 
 #container_gameGlobal {
+    display: flex;
+    align-items: flex-end;
     height: 100%;
     margin-left: 100px;
 }
 
 #container_game {
+    display: inline-block;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+#container_questions_game {
     display: flex;
     align-items: flex-end;
 }
@@ -94,7 +94,7 @@ input[type=text]:focus {
     background-color: #dfdfdf;
     box-shadow:inset 0px 1px 0px 0px #ffffff;
 	background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
-	width: 100%;
+	width: 50%;
     margin-right: 3px;
 	border-radius:6px;
 	border:1px solid #dcdcdc;
@@ -129,6 +129,7 @@ input[type=text]:focus {
     display: block;
     align-self: center;
     justify-content: center;
+    text-align: center;
 }
 
 #container_shortcuts {

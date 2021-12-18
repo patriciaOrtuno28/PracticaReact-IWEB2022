@@ -4,5 +4,14 @@
     "home_text": "En esta página podrás jugar a diferentes juegos. Haz click en la pestaña del juego al que quieras jugar.",
     "ttt_nMoves": "Número de movimientos: ",
     "ttt_reset": "Reiniciar",
-    "header_turn": "Turno de "
+    "header_turn": "Turno de ",
+    "quiz_no": "No hay quizzes disponibles.",
+    "game_score": "Puntuación: ",
+    "game_correct": "acertadas",
+    "game_playAgain": "Volver a jugar",
+    "game_question": "Pregunta ",
+    "game_insertAnswer": "Introducir respuesta: ",
+    "btn_next": "Siguiente",
+    "btn_prev": "Anterior",
+    "btn_submit": "Enviar"
 }
