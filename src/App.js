@@ -4,31 +4,40 @@ import TicTacToe from './TicTacToe';
 import Home from './Home';
 import Quiz from './Quiz';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import React, { Component } from 'react';
 import { LangContext } from './LangContext';
-import es from "./lang/es.json";
-import en from "./lang/en.json";
-import  {useState} from 'react';
+import eng from "./en.json";
+import esp from "./esp.json";
 
-function App() {
-  const [lang,setLang] = useState(es)
-  const handleLanguageChange= () => {
-    setLang(lang === es ? en : es)
+class App extends Component {
+  state = {
+    lang: esp,
+  };
+
+  toggleLang = () => {
+    this.setState(state => ({
+      lang: state.lang === eng ? esp : eng
+    }))
   }
-  return (
-    <LangContext.provider value={lang} >
-    <Router>
-      <Menu home={lang.home} />
-      <button onClick={handleLanguageChange}>en/es</button>
-      <div className="container mt-2" style={{ marginTop: 20 }}>
-        <Routes>
-          <Route path="/" element={<Home/>}/>
-          <Route path="/tictactoe" element={<TicTacToe/>}/>
-          <Route path="/quiz" element={<Quiz/>}/>
-        </Routes>
-      </div>
-    </Router>
-    </LangContext.provider>
-  );
+
+  static contextType = LangContext;
+
+  render () {
+    return (
+      <LangContext.Provider value={this.state.lang}>
+        <Router>
+          <Menu toggleLang={this.toggleLang}/>
+          <div className="container mt-2" style={{ marginTop: 20 }}>
+            <Routes>
+              <Route path="/" element={<Home/>}/>
+              <Route path="/tictactoe" element={<TicTacToe/>}/>
+              <Route path="/quiz" element={<Quiz/>}/>
+            </Routes>
+          </div>
+        </Router>
+      </LangContext.Provider>
+    );
+  }
 }
 
 export default App;

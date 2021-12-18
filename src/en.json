@@ -1,0 +1,8 @@
+{
+    "home_welcome": "Welcome!",
+    "home_subtitle": "Home page of the minigames in React",
+    "home_text": "In this webpage you will be able to play different games. Click on the tab of the game you want to play.",
+    "ttt_nMoves": "Number of moves: ",
+    "ttt_reset": "Reset",
+    "header_turn": "Turn of "
+}
