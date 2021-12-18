@@ -26,3 +26,21 @@
 .nav-tabs .active {
     background-color: #494E6B;
 }
+
+#btn_language {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background-color: #985E6D;
+    border: 2px solid white;
+    color: white;
+    font-style: italic;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: color 0.4s linear;
+}
+
+#btn_language:hover {
+    background-color: #985e6dbe;
+}

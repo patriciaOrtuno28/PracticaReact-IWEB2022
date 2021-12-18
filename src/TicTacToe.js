@@ -4,6 +4,7 @@ import  {useState} from 'react';
 import Header from './Header';
 import Board from './Board';
 import {Button} from 'react-bootstrap';
+import { LangContext } from './LangContext';
 
 const PLAYERX = "Player 1 - Xs";
 const PLAYER0 = "Player 2 - 0s";
@@ -39,12 +40,16 @@ export default function TicTacToe(props) {
   }
 
 return(
-  <div id="container_tictactoe">
-    <Header turno={turno}/>
-    <Board turno={turno} values={values} appClick={appClick}/>
-    <h2 id="h2_tictactoe">Number of moves: {moves}</h2>
-    <Button onClick={reset} variant="success" id="btn_reset">Reset</Button>
-  </div>
+  <LangContext.Consumer>
+    {lang =>
+      <div id="container_tictactoe">
+        <Header turno={turno}/>
+        <Board turno={turno} values={values} appClick={appClick}/>
+        <h2 id="h2_tictactoe">{lang.ttt_nMoves}{moves}</h2>
+        <Button onClick={reset} variant="success" id="btn_reset">{lang.ttt_reset}</Button>
+      </div>
+    }
+  </LangContext.Consumer>
 )
 
 }
