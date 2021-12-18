@@ -45,10 +45,8 @@ export default function Game (props) {
     }
 
     const playAgain = () => {
-        props.setFinished(false);
-        props.setScore(0);
         setAnswers(nullArray);
-        props.setCurrentQuiz(0);
+        props.resetGame();
     }
 
     if (!props.finished) {
@@ -59,6 +57,7 @@ export default function Game (props) {
                     <Shortcuts quizzes={props.quizzes} setCurrentQuiz={props.setCurrentQuiz} checkValid={checkValid}/>
                 </div>
                 <div id="container_game">
+                    <Button id="btn_reset_quizzes" onClick={props.resetGame}>{lang.btn_reset}</Button>
                     <div id="container_questions_game">
                         <div id="container_img">
                             <img src={props.quiz.attachment ? props.quiz.attachment.url : 'https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg'} id="img_quiz" onError={event => {
