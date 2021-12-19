@@ -2,6 +2,23 @@
     min-height: 200px;
 }
 
+#container_extras {
+    float: right;
+    margin-right: 0px;
+    overflow: auto;
+}
+
+#container_countdown {
+    text-align: right;
+    font-size: 2em;
+    color: white;
+}
+
+#p_time {
+    font-size: 0.8em;
+    text-align: right;
+}
+
 #btn_reset_quizzes {
     background-color: #dfdfdf;
     box-shadow:inset 0px 1px 0px 0px #ffffff;
@@ -19,6 +36,7 @@
     margin-right: 0px;
     float: right;
     overflow: auto;
+    margin-bottom: 10px;
 }
 
 #btn_reset_quizzes:hover:enabled {

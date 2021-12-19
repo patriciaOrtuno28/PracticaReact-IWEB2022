@@ -5,7 +5,6 @@ import  {useEffect} from 'react';
 import "./Quiz.css";
 import axios from "axios";
 import { LangContext } from './LangContext';
-import {Button} from 'react-bootstrap';
 
 export default function Quiz() {  
   // Inicialización de parámetros como Hooks

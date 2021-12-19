@@ -14,5 +14,6 @@
     "btn_next": "Siguiente",
     "btn_prev": "Anterior",
     "btn_submit": "Enviar",
-    "btn_reset": "Reiniciar"
+    "btn_reset": "Reiniciar",
+    "game_time": "Tiempo restante:"
 }
