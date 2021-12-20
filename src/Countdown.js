@@ -1,6 +1,8 @@
 import React from 'react';
 
 export default class CountDown extends React.Component {
+    _isMounted = false;
+
     constructor(props) {
         super(props);
         this.state = {
@@ -9,17 +11,20 @@ export default class CountDown extends React.Component {
         }
     }
     componentDidMount() {
-        this.timer = setInterval(() => {
-            let { count } = this.state;
-            this.setState({
-                count: count - 1
-            });
-            // Color del texto rojo cuando solo queden 30 segundos
-            let container = document.getElementById("container_countdown");
-            if (count <= 31) {
-                container.style.color = 'red';
-            }
-        }, 1000)
+        this._isMounted = true;
+        if (this._isMounted) {
+            this.timer = setInterval(() => {
+                let { count } = this.state;
+                this.setState({
+                    count: count - 1
+                });
+                // Color del texto rojo cuando solo queden 30 segundos
+                let container = document.getElementById("container_countdown");
+                if (count <= 31) {
+                    container.style.color = 'red';
+                }
+            }, 1000)
+        }
     }
 
     componentDidUpdate(_prevProps, prevState, _snapshot) {
@@ -30,6 +35,10 @@ export default class CountDown extends React.Component {
                 this.props.stopTimer();
             }
         }
+    }
+
+    componentWillUnmount() {
+        this._isMounted = false;
     }
 
     render() {
