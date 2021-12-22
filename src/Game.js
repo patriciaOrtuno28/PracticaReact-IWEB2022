@@ -126,7 +126,7 @@ export default function Game (props) {
                                 event.onerror = null
                             }}/>
                             <div id="container_img_text">
-                                <img src={props.quiz.author.photo ? props.quiz.author.photo.url : 'https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg'} 
+                                <img src={props.quiz.author ? (props.quiz.author.photo ? props.quiz.author.photo.url : 'https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg') : 'https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg'} 
                                 alt="Foto de perfil del autor del quiz" id="img_author" onError={event => {
                                     event.target.src = 'https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg'
                                     event.onerror = null

@@ -44,7 +44,9 @@ export default function Quiz() {
               <div id="container_quiz">
                 <Game quizzes={quizzesArray} quiz={quizzesArray[currentQuiz]} currentQuiz={currentQuiz} setCurrentQuiz={setCurrentQuiz} nQuizzes={quizzesArray.length} setScore={setScore} score={score} setFinished={setFinished} finished={finished} resetGame={resetGame}/>
               </div>
-               : <h2>No hay quizzes disponibles.</h2>
+               : <div id="container_loading">
+                  <img id ="loaging_img" alt="Loading..." src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Youtube_loading_symbol_1_(wobbly).gif"/>
+                </div>
             }
             </div>
         }

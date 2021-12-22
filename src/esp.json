@@ -16,5 +16,7 @@
     "btn_submit": "Enviar",
     "btn_reset": "Reiniciar",
     "game_time": "Tiempo restante:",
-    "menu_home": "Inicio"
+    "menu_home": "Inicio",
+    "menu_ttt": "Tres en raya",
+    "menu_quiz": "Preguntas y respuestas"
 }

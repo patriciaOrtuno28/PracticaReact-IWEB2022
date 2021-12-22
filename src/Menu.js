@@ -7,8 +7,8 @@ const Menu = (props) => {
         {lang =>
             <nav className="nav nav-tabs" role="tablist">
                 <NavLink to="/">{lang.menu_home}</NavLink>
-                <NavLink to="/tictactoe">TicTacToe</NavLink>
-                <NavLink to="/quiz">Quiz</NavLink>
+                <NavLink to="/tictactoe">{lang.menu_ttt}</NavLink>
+                <NavLink to="/quiz">{lang.menu_quiz}</NavLink>
                 <button onClick={props.toggleLang} id="btn_language">Español / English</button>
             </nav>
         }
