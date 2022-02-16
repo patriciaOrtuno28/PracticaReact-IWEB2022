@@ -69,3 +69,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 # practicaReact
+
+Repositorio de la práctica de IWEB curso 2021-2022 usando la tecnología de React.
+Página web de minijuegos que incluye: Tres en raya (TicTacToe) y Preguntas-Respuestas (Quiz).
